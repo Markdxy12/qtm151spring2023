@@ -35,7 +35,7 @@ United States Congress dataset
 
 Create table from codebook/dictionary
 -- SQLBook: Code
--- Active: 1680027197221@@127.0.0.1@5432@postgres
+-- Active: 1680558001822@@127.0.0.1@5432@postgres@public
 -- We start by deleting the old table
 -- SQL does not allow you to create a table if one already exists
 DROP TABLE IF EXISTS us_congress_members;
@@ -131,6 +131,7 @@ Try it yourself!
 additional ".sqlbooks" in this folder
 
 -- SQLBook: Code
+-- Active: 1680558001822@@127.0.0.1@5432@postgres@public
 -- Write your own code
 --
 -- The argument associaated with COPY is the dataset in our server
@@ -143,7 +144,9 @@ additional ".sqlbooks" in this folder
 
 -- You just have to change the FROM argument
 
-
+COPY us_congress_members
+FROM '/Users/markdu/Documents/GitHub/qtm151spring2023/Lecture 18/data/us_congress_members.csv'
+WITH (DELIMITER ',', FORMAT csv, HEADER MATCH);
 
 
 
@@ -161,7 +164,7 @@ SELECT * FROM us_congress_members
 ```
 -- SQLBook: Code
 -- Write your own code
-
+SELECT * FROM us_congress_members
 
 
 
@@ -213,6 +216,8 @@ Interpreting Error Messages:
 -- run the "CREATE TABLE" above.
 -- SQL doesn't allow you to import data without specifying the
 -- "codebook" first. In that sense it's quite different from Python.
+-- SQLBook: Code
+
 -- SQLBook: Markup
 # <span style="color:darkblue"> III. Merge Data </span>
 
